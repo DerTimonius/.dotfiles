@@ -1,5 +1,10 @@
 echo "----Starting setup installation----"
 
+echo "----Installing Xcode Command Line Tools----"
+xcode-select --install
+
+read -p "Press Enter after Xcode Command Line Tools installation is complete"
+
 sudo chown -R $(whoami):admin /usr/local
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 brew doctor
