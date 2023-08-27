@@ -1,7 +1,11 @@
 echo "----Starting setup installation----"
 
 echo "----Installing Xcode Command Line Tools----"
-xcode-select --install
+if xcode-select --version &>/dev/null; then
+  echo "Xcode is already installed, skipping"
+else
+  xcode-select --install
+fi
 
 read -p "Press Enter after Xcode Command Line Tools installation is complete"
 
@@ -39,8 +43,8 @@ sudo rm -rf ~/.gitconfig > /dev/null 2>&1
 sudo rm -rf ~/.zshrc > /dev/null 2>&1
 sudo rm -rf ~/.bashrc > /dev/null 2>&1
 sudo rm -rf ~/.p10k.zsh > /dev/null 2>&1
-sudo rm -rf ~/fig/.bashrc > /dev/null 2>&1
-sudo rm -rf ~/fig/.profile > /dev/null 2>&1
+sudo rm -rf ~/.bashrc > /dev/null 2>&1
+sudo rm -rf ~/.profile > /dev/null 2>&1
 
 SYMLINKS=()
 ln -sf ~/.dotfiles/.gitconfig ~/.gitconfig
@@ -52,10 +56,10 @@ SYMLINKS+=('.zshrc')
 ln -sf ~/.dotfiles/terminal/.p10k.zsh ~/.p10k.zsh
 SYMLINKS+=('.p10k.zsh ')
 
-ln -sf ~/.dotfiles/terminal/fig/.bashrc ~/.bashrc
+ln -sf ~/.dotfiles/terminal/.bashrc ~/.bashrc
 SYMLINKS+=('.bashrc ')
 
-ln -sf ~/.dotfiles/terminal/fig/.profile ~/.profile
+ln -sf ~/.dotfiles/terminal/.profile ~/.profile
 SYMLINKS+=('.profile ')
 
 echo ${SYMLINKS[@]}
