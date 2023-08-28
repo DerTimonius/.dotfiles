@@ -5,9 +5,9 @@ if xcode-select --version &>/dev/null; then
   echo "Xcode is already installed, skipping"
 else
   xcode-select --install
+  read -p "Press Enter after Xcode Command Line Tools installation is complete"
 fi
 
-read -p "Press Enter after Xcode Command Line Tools installation is complete"
 
 sudo chown -R $(whoami):admin /usr/local
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
@@ -45,6 +45,7 @@ sudo rm -rf ~/.bashrc > /dev/null 2>&1
 sudo rm -rf ~/.p10k.zsh > /dev/null 2>&1
 sudo rm -rf ~/.bashrc > /dev/null 2>&1
 sudo rm -rf ~/.profile > /dev/null 2>&1
+sudo rm -rf ~/Brewfile > /dev/null 2>&1
 
 SYMLINKS=()
 ln -sf ~/.dotfiles/.gitconfig ~/.gitconfig
@@ -61,6 +62,9 @@ SYMLINKS+=('.bashrc ')
 
 ln -sf ~/.dotfiles/terminal/.profile ~/.profile
 SYMLINKS+=('.profile ')
+
+ln -sf ~/.dotfiles/Brewfile ~/Brewfile
+SYMLINKS+=('Brewfile')
 
 echo ${SYMLINKS[@]}
 
