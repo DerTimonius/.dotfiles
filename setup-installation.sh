@@ -1,4 +1,5 @@
 echo "----Starting setup installation----"
+sudo chown -R $(whoami):admin /usr/local
 
 echo "----Installing Xcode Command Line Tools----"
 if xcode-select --version &>/dev/null; then
@@ -8,14 +9,18 @@ else
   read -p "Press Enter after Xcode Command Line Tools installation is complete"
 fi
 
+echo "----Installing Brew----"
+if brew help &>/dev/null; then
+  echo "Brew is already installed"
+else
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  echo "export PATH='/usr/local/bin:$PATH'\n" >> ~/.bashrc
+  source ~/.bashrc
+fi
 
-sudo chown -R $(whoami):admin /usr/local
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 brew doctor
 brew update
 
-echo "export PATH='/usr/local/bin:$PATH'\n" >> ~/.bashrc
-source ~/.bashrc
 
 echo "----installing ohmyzsh----"
 # install ohmyzsh and the currently used theme
