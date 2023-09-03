@@ -71,6 +71,9 @@ SYMLINKS+=('.profile ')
 ln -sf ~/.dotfiles/Brewfile ~/Brewfile
 SYMLINKS+=('Brewfile')
 
+ln -sf ~/.dotfiles/.warp ~/.warp
+SYMLINKS+=('.warp')
+
 echo ${SYMLINKS[@]}
 
 echo "----Installation complete----"
