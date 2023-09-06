@@ -27,21 +27,6 @@ echo "----installing ohmyzsh----"
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
 
-echo "----install via Brewfile----"
-cd ~
-brew bundle
-cd -
-
-echo "----activating pnpm----"
-# activate pnpm and install some global deps
-if node --version &>/dev/null; then
-  corepack enable
-  corepack prepare pnpm@latest --activate
-  pnpm add -g @antfu/ni
-else
-  echo "Node not installed correctly, please check and activate pnpm manually"
-fi
-
 echo "----removing old config files and creating new symlinks----"
 # remove old config files
 sudo rm -rf ~/.gitconfig > /dev/null 2>&1
@@ -51,6 +36,7 @@ sudo rm -rf ~/.p10k.zsh > /dev/null 2>&1
 sudo rm -rf ~/.bashrc > /dev/null 2>&1
 sudo rm -rf ~/.profile > /dev/null 2>&1
 sudo rm -rf ~/Brewfile > /dev/null 2>&1
+sudo rm -rf ~/.warp > /dev/null 2>&1
 
 SYMLINKS=()
 ln -sf ~/.dotfiles/.gitconfig ~/.gitconfig
@@ -76,4 +62,21 @@ SYMLINKS+=('.warp')
 
 echo ${SYMLINKS[@]}
 
+echo "----install via Brewfile----"
+cd ~
+brew bundle
+cd -
+
+echo "----activating pnpm----"
+# activate pnpm and install some global deps
+if node --version &>/dev/null; then
+  corepack enable
+  corepack prepare pnpm@latest --activate
+  pnpm add -g @antfu/ni
+else
+  echo "Node not installed correctly, please check and activate pnpm manually"
+fi
+
 echo "----Installation complete----"
+
+echo "Still Todo:\n-run fig\n-configure raycast"
