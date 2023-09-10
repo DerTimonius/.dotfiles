@@ -24,7 +24,17 @@ To run the script:
 
 The script is written in a way that it does not matter in which directory you currently are.
 
-## TODO:
+## Additional setup
 
-- [x] Write installation script
-- [ ] Search for more necessary files
+- [ ] Raycast extensions
+  - [ ] Git Commands
+  - [ ] Docker
+  - [ ] VSCode
+  - [ ] Brave
+  - [ ] Scroll Direction
+  - [ ] Add quicklinks for localhost
+  - [ ] Warp
+  - [ ] Spotify
+  - [ ] Bundlephobia
+- [ ] Fig setup
+  - [ ] run `fig` in the terminal

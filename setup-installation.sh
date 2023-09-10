@@ -72,11 +72,8 @@ echo "----activating pnpm----"
 if node --version &>/dev/null; then
   corepack enable
   corepack prepare pnpm@latest --activate
-  pnpm add -g @antfu/ni
 else
   echo "Node not installed correctly, please check and activate pnpm manually"
 fi
 
 echo "----Installation complete----"
-
-echo "Still Todo:\n-run fig\n-configure raycast"
