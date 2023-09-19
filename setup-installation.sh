@@ -76,4 +76,11 @@ else
   echo "Node not installed correctly, please check and activate pnpm manually"
 fi
 
+echo "----installing rust---"
+if cargo --version &>/dev/null; then
+  echo "Rust is already installed, skipping"
+else
+  curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+fi
+
 echo "----Installation complete----"
