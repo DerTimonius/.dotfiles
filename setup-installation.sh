@@ -37,6 +37,7 @@ sudo rm -rf ~/.bashrc > /dev/null 2>&1
 sudo rm -rf ~/.profile > /dev/null 2>&1
 sudo rm -rf ~/Brewfile > /dev/null 2>&1
 sudo rm -rf ~/.warp > /dev/null 2>&1
+sudo rm -rf ~/.config/nvim > /dev/null 2>&1
 
 SYMLINKS=()
 ln -sf ~/.dotfiles/.gitconfig ~/.gitconfig
@@ -59,6 +60,9 @@ SYMLINKS+=('Brewfile')
 
 ln -sf ~/.dotfiles/.warp ~/.warp
 SYMLINKS+=('.warp')
+
+ln -sf ~/.dotfiles/nvim ~/.config/nvim
+SYMLINKS+=('nvim')
 
 echo ${SYMLINKS[@]}
 
