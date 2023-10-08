@@ -6,7 +6,7 @@ if xcode-select --version &>/dev/null; then
   echo "Xcode is already installed, skipping"
 else
   xcode-select --install
-  read -p "Press Enter after Xcode Command Line Tools installation is complete"
+  read -p "Press Enter after Xcode Command Line Tools installation is complete to continue"
 fi
 
 echo "----Installing Brew----"
@@ -25,7 +25,11 @@ brew update
 echo "----installing ohmyzsh----"
 # install ohmyzsh and the currently used theme
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+echo "install powerlevel10k theme?"
+select theme in Yes No
+if [ "$theme" == "Yes" ]; then
+  git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+fi
 
 echo "----removing old config files and creating new symlinks----"
 # remove old config files
@@ -37,7 +41,6 @@ sudo rm -rf ~/.bashrc > /dev/null 2>&1
 sudo rm -rf ~/.profile > /dev/null 2>&1
 sudo rm -rf ~/Brewfile > /dev/null 2>&1
 sudo rm -rf ~/.warp > /dev/null 2>&1
-sudo rm -rf ~/.config/nvim > /dev/null 2>&1
 
 SYMLINKS=()
 ln -sf ~/.dotfiles/.gitconfig ~/.gitconfig
@@ -61,8 +64,17 @@ SYMLINKS+=('Brewfile')
 ln -sf ~/.dotfiles/.warp ~/.warp
 SYMLINKS+=('.warp')
 
-ln -sf ~/.dotfiles/nvim ~/.config/nvim
-SYMLINKS+=('nvim')
+echo "configure neovim?"
+select configNvim in Yes No
+if [ "$configNvim" == "Yes" ]; then
+  echo "----configuring neovim----"
+  sudo rm -rf ~/.config/nvim > /dev/null 2>&1
+  ln -sf ~/.dotfiles/nvim ~/.config/nvim
+  SYMLINKS+=('nvim')
+  echo "installing packer"
+  git clone --depth 1 https://github.com/wbthomason/packer.nvim\
+  ~/.local/share/nvim/site/pack/packer/start/packer.nvim
+fi
 
 echo ${SYMLINKS[@]}
 
