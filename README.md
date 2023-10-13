@@ -4,12 +4,16 @@ My personal collection of `dotfiles` to save my setup with an added installation
 
 ## How to use
 
-Depending on whether git is already installed or not:
+For a new Mac, with nothing installed, start by installing xcode:
 
-1. Either clone this repo
-2. Download the zipped repo
+```bash copy
+xcode-select --install
+```
 
-I would suggest to place this directory directly into the root directory (so that it's `~/.dotfiles`).
+This installs `git` (among other things), now it's possible to clone this repo.
+
+> I would suggest to place this directory directly into the root directory (so that it's `~/.dotfiles`).
+
 Next, to make sure the script can run, enter the following command:
 
 ```bash copy

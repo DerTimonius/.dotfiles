@@ -1,14 +1,6 @@
 echo "----Starting setup installation----"
 sudo chown -R $(whoami):admin /usr/local
 
-echo "----Installing Xcode Command Line Tools----"
-if xcode-select --version &>/dev/null; then
-  echo "Xcode is already installed, skipping"
-else
-  xcode-select --install
-  read -p "Press Enter after Xcode Command Line Tools installation is complete to continue"
-fi
-
 echo "----Installing Brew----"
 if brew help &>/dev/null; then
   echo "Brew is already installed"
