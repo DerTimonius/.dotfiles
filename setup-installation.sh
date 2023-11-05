@@ -13,15 +13,26 @@ fi
 brew doctor
 brew update
 
-
+options=("Yes" "No")
 echo "----installing ohmyzsh----"
 # install ohmyzsh and the currently used theme
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 echo "install powerlevel10k theme?"
-select theme in Yes No
-if [ "$theme" == "Yes" ]; then
-  git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
-fi
+select theme in "${options[@]}"; do
+  case "$theme" in
+    "Yes")
+      echo "----installing p10k theme----"
+      git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+      ;;
+    "No")
+      echo "No theme installed"
+      break
+      ;;
+    *)
+      echo "Invalid option. Please select 1 for Yes or 2 for No."
+      ;;
+  esac
+done
 
 echo "----removing old config files and creating new symlinks----"
 # remove old config files
@@ -57,16 +68,24 @@ ln -sf ~/.dotfiles/.warp ~/.warp
 SYMLINKS+=('.warp')
 
 echo "configure neovim?"
-select configNvim in Yes No
-if [ "$configNvim" == "Yes" ]; then
-  echo "----configuring neovim----"
-  sudo rm -rf ~/.config/nvim > /dev/null 2>&1
-  ln -sf ~/.dotfiles/nvim ~/.config/nvim
-  SYMLINKS+=('nvim')
-  echo "installing packer"
-  git clone --depth 1 https://github.com/wbthomason/packer.nvim\
-  ~/.local/share/nvim/site/pack/packer/start/packer.nvim
-fi
+select configNvim in "${options[@]}"; do
+  case "$configNvim" in
+    "Yes")
+      echo "----configuring neovim----"
+      sudo rm -rf ~/.config/nvim > /dev/null 2>&1
+      ln -sf ~/.dotfiles/nvim ~/.config/nvim
+      SYMLINKS+=('nvim')
+      break
+      ;;
+    "No")
+      echo "No configuration for neovim."
+      break
+      ;;
+    *)
+      echo "Invalid option. Please select 1 for Yes or 2 for No."
+      ;;
+  esac
+done
 
 echo ${SYMLINKS[@]}
 
