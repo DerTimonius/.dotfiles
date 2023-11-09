@@ -42,6 +42,7 @@ sudo rm -rf ~/.bashrc > /dev/null 2>&1
 sudo rm -rf ~/.p10k.zsh > /dev/null 2>&1
 sudo rm -rf ~/.bashrc > /dev/null 2>&1
 sudo rm -rf ~/.profile > /dev/null 2>&1
+sudo rm -rf ~/.zprofile > /dev/null 2>&1
 sudo rm -rf ~/Brewfile > /dev/null 2>&1
 sudo rm -rf ~/.warp > /dev/null 2>&1
 
@@ -60,6 +61,9 @@ SYMLINKS+=('.bashrc ')
 
 ln -sf ~/.dotfiles/terminal/.profile ~/.profile
 SYMLINKS+=('.profile ')
+
+ln -sf ~/.dotfiles/terminal/.zprofile ~/.zprofile
+SYMLINKS+=('.zprofile ')
 
 ln -sf ~/.dotfiles/Brewfile ~/Brewfile
 SYMLINKS+=('Brewfile')
@@ -87,6 +91,7 @@ select configNvim in "${options[@]}"; do
   esac
 done
 
+echo "The following symlinks have been created:\n"
 echo ${SYMLINKS[@]}
 
 echo "----install via Brewfile----"
