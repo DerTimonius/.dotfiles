@@ -61,7 +61,7 @@ return {
         function() require("telescope.builtin").find_files({ cwd = require("lazy.core.config").options.root }) end,
         desc = "Find Plugin File",
       },
-      { "<leader>fk", "<cmd>Telescope keymaps</cmd>", desc = "Show keymaps" },
+      { "<leader>sk", "<cmd>Telescope keymaps</cmd>", desc = "Show keymaps" },
     },
     -- change some options
     opts = {
@@ -143,6 +143,7 @@ return {
     "nvim-treesitter/nvim-treesitter",
     opts = {
       ensure_installed = {
+        "astro",
         "bash",
         "html",
         "javascript",
@@ -153,6 +154,7 @@ return {
         "python",
         "query",
         "regex",
+        "rust",
         "tsx",
         "typescript",
         "vim",
