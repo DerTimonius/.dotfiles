@@ -6,33 +6,12 @@ if brew help &>/dev/null; then
   echo "Brew is already installed"
 else
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-  echo "export PATH='/usr/local/bin:$PATH'\n" >> ~/.bashrc
-  source ~/.bashrc
+  echo "export PATH='/usr/local/bin:$PATH'\n" >> ~/.zprofile
+  source ~/.zprofile
 fi
 
 brew doctor
 brew update
-
-options=("Yes" "No")
-echo "----installing ohmyzsh----"
-# install ohmyzsh and the currently used theme
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-echo "install powerlevel10k theme?"
-select theme in "${options[@]}"; do
-  case "$theme" in
-    "Yes")
-      echo "----installing p10k theme----"
-      git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
-      ;;
-    "No")
-      echo "No theme installed"
-      break
-      ;;
-    *)
-      echo "Invalid option. Please select 1 for Yes or 2 for No."
-      ;;
-  esac
-done
 
 echo "----removing old config files and creating new symlinks----"
 # remove old config files
@@ -71,25 +50,10 @@ SYMLINKS+=('Brewfile')
 ln -sf ~/.dotfiles/.warp ~/.warp
 SYMLINKS+=('.warp')
 
-echo "configure neovim?"
-select configNvim in "${options[@]}"; do
-  case "$configNvim" in
-    "Yes")
-      echo "----configuring neovim----"
-      sudo rm -rf ~/.config/nvim > /dev/null 2>&1
-      ln -sf ~/.dotfiles/nvim ~/.config/nvim
-      SYMLINKS+=('nvim')
-      break
-      ;;
-    "No")
-      echo "No configuration for neovim."
-      break
-      ;;
-    *)
-      echo "Invalid option. Please select 1 for Yes or 2 for No."
-      ;;
-  esac
-done
+sudo rm -rf ~/.config/nvim > /dev/null 2>&1
+mkdir .config
+ln -sf ~/.dotfiles/nvim ~/.config/nvim
+SYMLINKS+=('nvim')
 
 echo "The following symlinks have been created:\n"
 echo ${SYMLINKS[@]}
@@ -114,5 +78,9 @@ if cargo --version &>/dev/null; then
 else
   curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 fi
+
+# echo "----installing ohmyzsh----"
+# install ohmyzsh and the currently used theme
+# sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 echo "----Installation complete----"
