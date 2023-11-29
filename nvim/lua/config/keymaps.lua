@@ -7,6 +7,14 @@ local set = vim.keymap.set
 set("i", "<C-c>", "Esc")
 set("v", "<C-c>", "Esc")
 
+-- weird remap for Mac reasons...
+set("n", "º", "<cmd>m .+1<cr>==", { desc = "Move down" })
+set("n", "∆", "<cmd>m .-2<cr>==", { desc = "Move up" })
+set("i", "º", "<esc><cmd>m .+1<cr>==gi", { desc = "Move down" })
+set("i", "∆", "<esc><cmd>m .-2<cr>==gi", { desc = "Move up" })
+set("v", "º", ":m '>+1<cr>gv=gv", { desc = "Move down" })
+set("v", "∆", ":m '<-2<cr>gv=gv", { desc = "Move up" })
+
 set("i", "<C-s>", "<esc><cmd>w<CR>")
 set("n", "<leader>pv", vim.cmd.Ex)
 set("n", "<C-d>", "<C-d>zz")
