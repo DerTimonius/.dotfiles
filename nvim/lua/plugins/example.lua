@@ -48,8 +48,6 @@ return {
     end,
   },
 
-  { "nvim-lua/plenary.nvim" },
-  { "ThePrimeagen/harpoon" },
   -- change some telescope options and a keymap to browse plugin files
   {
     "nvim-telescope/telescope.nvim",
@@ -143,7 +141,6 @@ return {
     "nvim-treesitter/nvim-treesitter",
     opts = {
       ensure_installed = {
-        "astro",
         "bash",
         "html",
         "javascript",
@@ -154,7 +151,6 @@ return {
         "python",
         "query",
         "regex",
-        "rust",
         "tsx",
         "typescript",
         "vim",
