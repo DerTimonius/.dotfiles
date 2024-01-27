@@ -23,5 +23,13 @@ set("n", "<C-u>", "<C-u>zz")
 set("x", "<leader>p", '"_dP')
 set("n", "<leader>y", '"+y')
 set("v", "<leader>y", '"+y')
-set("n", "<leader>cs", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
+set(
+  "n",
+  "<leader>cs",
+  [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]],
+  { desc = "Rename word under the cursor (and every instance)" }
+)
 set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
+
+-- lsp restart keymaps
+set("n", "<leader>ts", "<cmd>LspRestart tsserver<CR>", { desc = "Restart tsserver" })
