@@ -1,0 +1,8 @@
+[
+  {
+    "context": "Editor && VimControl && !VimWaiting && !menu",
+    "bindings": {
+      "shift-k": "editor::Hover"
+    }
+  }
+]
