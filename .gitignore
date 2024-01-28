@@ -1,1 +1,4 @@
 .git
+zed/conversations/
+zed/embeddings/
+zed/.tmp*

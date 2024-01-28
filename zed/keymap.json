@@ -2,7 +2,9 @@
   {
     "context": "Editor && VimControl && !VimWaiting && !menu",
     "bindings": {
-      "shift-k": "editor::Hover"
+      "shift-h": "editor::Hover",
+      "shift-j": "editor::MoveLineDown",
+      "shift-k": "editor::MoveLineUp"
     }
   }
 ]
