@@ -27,7 +27,8 @@
       "alt-up": "editor::MoveLineUp",
       "alt-down": "editor::MoveLineDown",
       "alt-<": "editor::Outdent",
-      "alt->": "editor::Indent"
+      "alt->": "editor::Indent",
+      "cmd-k w": "workspace::CloseInactiveTabsAndPanes"
     }
   }
 ]

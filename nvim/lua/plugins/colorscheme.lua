@@ -4,6 +4,14 @@ return {
     lazy = true,
     name = "catppuccin",
     opts = {
+      dim_inactive = {
+        enabled = true,
+        shade = "dark",
+        percentage = 0.25,
+      },
+      flavour = "mocha",
+      transparent_brackground = false,
+      term_colors = false,
       integrations = {
         aerial = true,
         alpha = true,
