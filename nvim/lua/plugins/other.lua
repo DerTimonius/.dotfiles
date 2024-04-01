@@ -1,6 +1,7 @@
 return {
   {
     "ThePrimeagen/harpoon",
+    branch = "harpoon2",
     keys = {
       {
         "<leader>a",
@@ -10,35 +11,35 @@ return {
         desc = "Add file to harpoon",
       },
       {
-        "<C-y>",
+        "<leader>h",
         function()
           require("harpoon.ui").toggle_quick_menu()
         end,
         desc = "Toggle harpoon menu",
       },
       {
-        "<C-1>",
+        "<leader>1",
         function()
           require("harpoon.ui").nav_file(1)
         end,
         desc = "Select first file in harpoon",
       },
       {
-        "<C-2>",
+        "<leader>2",
         function()
           require("harpoon.ui").nav_file(2)
         end,
         desc = "Select second file in harpoon",
       },
       {
-        "<C-3>",
+        "<leader>3",
         function()
           require("harpoon.ui").nav_file(3)
         end,
         desc = "Select third file in harpoon",
       },
       {
-        "<C-4>",
+        "<leader>4",
         function()
           require("harpoon.ui").nav_file(4)
         end,
