@@ -28,17 +28,12 @@ To run the script:
 
 The script is written in a way that it does not matter in which directory you currently are.
 
-## Additional setup
+### Backup
 
-- [ ] Raycast extensions
-  - [ ] Git Commands
-  - [ ] Docker
-  - [ ] VSCode
-  - [ ] Brave
-  - [ ] Scroll Direction
-  - [ ] Add quicklinks for localhost
-  - [ ] Warp
-  - [ ] Spotify
-  - [ ] Bundlephobia
-- [ ] Fig setup
-  - [ ] run `fig` in the terminal
+This repo also contains a backup script that upgrades the packages that were installed with brew and create a new `Brewfile`.
+It also commits the changes to the repo and pushes it to the remote repo.
+
+```sh copy
+chmod +x ~/.dotfiles/backup.sh
+~/.dotfiles/backup.sh
+```
