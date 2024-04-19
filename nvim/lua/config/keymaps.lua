@@ -33,3 +33,8 @@ set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
 
 -- lsp restart keymaps
 set("n", "<leader>ts", "<cmd>LspRestart tsserver<CR>", { desc = "Restart tsserver" })
+
+set("n", "ı", "yyp", { desc = "Copy line down" })
+set("n", "ˆ", "yyP", { desc = "Copy line up" })
+set("v", "ı", "ypgvj<esc>p", { desc = "Copy line down" })
+set("v", "ˆ", "yyP", { desc = "Copy line up" })

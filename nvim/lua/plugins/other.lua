@@ -2,50 +2,36 @@ return {
   {
     "ThePrimeagen/harpoon",
     branch = "harpoon2",
-    keys = {
-      {
-        "<leader>a",
-        function()
-          require("harpoon.mark").add_file()
-        end,
-        desc = "Add file to harpoon",
-      },
-      {
-        "<leader>h",
-        function()
-          require("harpoon.ui").toggle_quick_menu()
-        end,
-        desc = "Toggle harpoon menu",
-      },
-      {
-        "<leader>1",
-        function()
-          require("harpoon.ui").nav_file(1)
-        end,
-        desc = "Select first file in harpoon",
-      },
-      {
-        "<leader>2",
-        function()
-          require("harpoon.ui").nav_file(2)
-        end,
-        desc = "Select second file in harpoon",
-      },
-      {
-        "<leader>3",
-        function()
-          require("harpoon.ui").nav_file(3)
-        end,
-        desc = "Select third file in harpoon",
-      },
-      {
-        "<leader>4",
-        function()
-          require("harpoon.ui").nav_file(4)
-        end,
-        desc = "Select fourth file in harpoon",
-      },
-    },
+    keys = function()
+      local keys = {
+        {
+          "<leader>a",
+          function()
+            require("harpoon"):list():add()
+          end,
+          desc = "Harpoon File",
+        },
+        {
+          "<leader>h",
+          function()
+            local harpoon = require("harpoon")
+            harpoon.ui:toggle_quick_menu(harpoon:list())
+          end,
+          desc = "Harpoon Quick Menu",
+        },
+      }
+
+      for i = 1, 5 do
+        table.insert(keys, {
+          "<leader>" .. i,
+          function()
+            require("harpoon"):list():select(i)
+          end,
+          desc = "Harpoon to File " .. i,
+        })
+      end
+      return keys
+    end,
   },
   {
     "nvim-neo-tree/neo-tree.nvim",
@@ -140,5 +126,17 @@ return {
         end,
       })
     end,
+  },
+  {
+    "lewis6991/gitsigns.nvim",
+    opts = {
+      signs = {
+        add = { text = "+" },
+        change = { text = "~" },
+        delete = { text = "_" },
+        topdelete = { text = "‾" },
+        changedelete = { text = "~" },
+      },
+    },
   },
 }

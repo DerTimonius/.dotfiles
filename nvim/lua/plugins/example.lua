@@ -25,9 +25,6 @@ return {
     opts = { use_diagnostic_signs = true },
   },
 
-  -- disable trouble
-  { "folke/trouble.nvim", enabled = false },
-
   -- add symbols-outline
   {
     "simrat39/symbols-outline.nvim",
@@ -228,6 +225,8 @@ return {
   -- then: setup supertab in cmp
   {
     "hrsh7th/nvim-cmp",
+    -- specifying commit atm until https://github.com/hrsh7th/nvim-cmp/issues/1877 is fixed
+    commit = "b356f2c80cb6c5bae2a65d7f9c82dd5c3fdd6038",
     dependencies = {
       "hrsh7th/cmp-emoji",
     },
@@ -256,6 +255,7 @@ return {
             fallback()
           end
         end, { "i", "s" }),
+        ["<C-Space>"] = cmp.mapping.complete({ reason = ContextReason.Manual }),
         ["<S-Tab>"] = cmp.mapping(function(fallback)
           if cmp.visible() then
             cmp.select_prev_item()
