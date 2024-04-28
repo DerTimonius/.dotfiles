@@ -4,3 +4,8 @@
 
 vim.opt.wrap = true
 vim.opt.scrolloff = 10
+vim.filetype.add({
+  extension = {
+    mdx = "markdown",
+  },
+})

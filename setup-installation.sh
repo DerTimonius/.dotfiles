@@ -3,11 +3,11 @@ sudo chown -R $(whoami):admin /usr/local
 
 echo "----Installing Brew----"
 if brew help &>/dev/null; then
-  echo "Brew is already installed"
+	echo "Brew is already installed"
 else
-  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-  echo "export PATH='/usr/local/bin:$PATH'\n" >> ~/.zprofile
-  source ~/.zprofile
+	/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+	echo "export PATH='/usr/local/bin:$PATH'\n" >>~/.zprofile
+	source ~/.zprofile
 fi
 
 brew doctor
@@ -15,16 +15,18 @@ brew update
 
 echo "----removing old config files and creating new symlinks----"
 # remove old config files
-sudo rm -rf ~/.gitconfig > /dev/null 2>&1
-sudo rm -rf ~/.zshrc > /dev/null 2>&1
-sudo rm -rf ~/.bashrc > /dev/null 2>&1
-sudo rm -rf ~/.p10k.zsh > /dev/null 2>&1
-sudo rm -rf ~/.bashrc > /dev/null 2>&1
-sudo rm -rf ~/.profile > /dev/null 2>&1
-sudo rm -rf ~/.zprofile > /dev/null 2>&1
-sudo rm -rf ~/Brewfile > /dev/null 2>&1
-sudo rm -rf ~/.warp > /dev/null 2>&1
-sudo rm -rf ~/.config/zed > /dev/null 2>&1
+sudo rm -rf ~/.gitconfig >/dev/null 2>&1
+sudo rm -rf ~/.zshrc >/dev/null 2>&1
+sudo rm -rf ~/.bashrc >/dev/null 2>&1
+sudo rm -rf ~/.p10k.zsh >/dev/null 2>&1
+sudo rm -rf ~/.bashrc >/dev/null 2>&1
+sudo rm -rf ~/.profile >/dev/null 2>&1
+sudo rm -rf ~/.zprofile >/dev/null 2>&1
+sudo rm -rf ~/Brewfile >/dev/null 2>&1
+sudo rm -rf ~/.warp >/dev/null 2>&1
+sudo rm -rf ~/.config/zed >/dev/null 2>&1
+sudo rm -rf ~/.config/bat >/dev/null 2>&1
+sudo rm -rf ~/.config/nvim >/dev/null 2>&1
 
 SYMLINKS=()
 ln -sf ~/.dotfiles/.gitconfig ~/.gitconfig
@@ -51,10 +53,12 @@ SYMLINKS+=('Brewfile')
 ln -sf ~/.dotfiles/.warp ~/.warp
 SYMLINKS+=('.warp')
 
-sudo rm -rf ~/.config/nvim > /dev/null 2>&1
 mkdir .config
 ln -sf ~/.dotfiles/nvim ~/.config/nvim
 SYMLINKS+=('nvim')
+
+ln -sf ~/.dotfiles/bat/ ~/.config/bat
+SYMLINKS+=('bat')
 
 ln -sf ~/.dotfiles/zed/settings.json ~/.config/zed/settings.json
 ln -sf ~/.dotfiles/zed/keymap.json ~/.config/zed/keymap.json
@@ -68,20 +72,23 @@ cd ~
 brew bundle
 cd -
 
+# build bat to add the theme
+bat cache --build
+
 echo "----activating pnpm----"
 # activate pnpm and install some global deps
 if node --version &>/dev/null; then
-  corepack enable
-  corepack prepare pnpm@latest --activate
+	corepack enable
+	corepack prepare pnpm@latest --activate
 else
-  echo "Node not installed correctly, please check and activate pnpm manually"
+	echo "Node not installed correctly, please check and activate pnpm manually"
 fi
 
 echo "----installing rust---"
 if cargo --version &>/dev/null; then
-  echo "Rust is already installed, skipping"
+	echo "Rust is already installed, skipping"
 else
-  curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+	curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 fi
 
 # echo "----installing ohmyzsh----"
