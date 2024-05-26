@@ -3,6 +3,7 @@
 -- Add any additional keymaps here
 
 local set = vim.keymap.set
+local del = vim.keymap.del
 
 set("i", "<C-c>", "Esc")
 set("v", "<C-c>", "Esc")
@@ -38,3 +39,8 @@ set("n", "ı", "yyp", { desc = "Copy line down" })
 set("n", "ˆ", "yyP", { desc = "Copy line up" })
 set("v", "ı", "ypgvj<esc>p", { desc = "Copy line down" })
 set("v", "ˆ", "yyP", { desc = "Copy line up" })
+
+del("n", "<leader>l")
+
+set("n", "<leader>ll", "<cmd>Lazy<CR>", { desc = "Open Lazy GUI" })
+set("n", "<leader>lx", "<cmd>LazyExtras<CR>", { desc = "Open LazyExtras" })
