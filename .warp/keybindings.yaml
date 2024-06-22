@@ -1,3 +1,5 @@
 ---
-"workspace:show_command_search": ctrl-o
+"workspace:increase_font_size": cmd-+
 "workspace:toggle_ai_assistant": ctrl-alt-space
+"workspace:show_command_search": ctrl-o
+"notebookview:increase_font_size": cmd-+

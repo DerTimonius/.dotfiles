@@ -24,7 +24,7 @@ return {
         end,
         desc = "Find recent files",
       },
-      { "<leader>sk", "<cmd>Telescope keymaps</cmd>", desc = "Show keymaps" },
+      { "<leader>sk", "<cmd>Telescope keymaps<CR>", desc = "Show keymaps" },
     },
     dependencies = {
       "nvim-telescope/telescope-fzf-native.nvim",
