@@ -1,0 +1,35 @@
+import = ["~/.dotfiles/alacritty/catppuccin/catppuccin-mocha.toml"]
+
+live_config_reload = true
+
+[env]
+TERM = "xterm-256color"
+
+[window]
+decorations = "buttonless"
+dynamic_padding = false
+option_as_alt = "OnlyRight"
+startup_mode = "Maximized"
+
+[window.padding]
+x = 15
+y = 10
+
+[font]
+size = 15.5
+
+[font.bold]
+family = "MonaspiceAr Nerd Font Mono"
+style = "Heavy"
+
+[font.bold_italic]
+family = "MonaspiceAr Nerd Font Mono"
+style = "Heavy Italic"
+
+[font.italic]
+family = "MonaspiceAr Nerd Font Mono"
+style = "Medium Italic"
+
+[font.normal]
+family = "MonaspiceAr Nerd Font Mono"
+style = "Medium"
