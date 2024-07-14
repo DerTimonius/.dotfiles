@@ -17,11 +17,11 @@ set("v", "º", ":m '>+1<cr>gv=gv", { desc = "Move down" })
 set("v", "∆", ":m '<-2<cr>gv=gv", { desc = "Move up" })
 
 set("i", "<C-s>", "<esc><cmd>w<CR>")
-set("n", "<leader>pv", vim.cmd.Ex)
 set("n", "<C-d>", "<C-d>zz")
 set("n", "<C-u>", "<C-u>zz")
 
-set("x", "<leader>p", '"_dP')
+set("x", "<leader>p", '"_dP', { desc = "Paste and put selection in void register" })
+set("x", "<leader>d", '"_dd', { desc = "Delete selection to void register" })
 set("n", "<leader>y", '"+y')
 set("v", "<leader>y", '"+y')
 set(
@@ -34,13 +34,12 @@ set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
 
 -- lsp restart keymaps
 set("n", "<leader>ts", "<cmd>LspRestart tsserver<CR>", { desc = "Restart tsserver" })
-
-set("n", "ı", "yyp", { desc = "Copy line down" })
-set("n", "ˆ", "yyP", { desc = "Copy line up" })
-set("v", "ı", "ypgvj<esc>p", { desc = "Copy line down" })
-set("v", "ˆ", "yyP", { desc = "Copy line up" })
-
-del("n", "<leader>l")
+set("n", "<leader>es", "<cmd>LspRestart eslint-lsp<CR>", { desc = "Restart ESLint" })
 
 set("n", "<leader>ll", "<cmd>Lazy<CR>", { desc = "Open Lazy GUI" })
 set("n", "<leader>lx", "<cmd>LazyExtras<CR>", { desc = "Open LazyExtras" })
+set("n", "<leader>nn", "<cmd>Noice<CR>", { desc = "Open Noice history" })
+
+del("n", "<leader>l")
+del("n", "<leader>ft")
+del("n", "<leader>fT")
