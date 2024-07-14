@@ -2,12 +2,12 @@ echo "----Starting setup installation----"
 sudo chown -R $(whoami):admin /usr/local
 
 echo "----Installing Brew----"
-if brew help &>/dev/null; then
-	echo "Brew is already installed"
+if brew --version &>/dev/null; then
+  echo "Brew is already installed"
 else
-	/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-	echo "export PATH='/usr/local/bin:$PATH'\n" >>~/.zprofile
-	source ~/.zprofile
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  echo "export PATH='/usr/local/bin:$PATH'\n" >>~/.zprofile
+  source ~/.zprofile
 fi
 
 brew doctor
@@ -18,15 +18,17 @@ echo "----removing old config files and creating new symlinks----"
 sudo rm -rf ~/.gitconfig >/dev/null 2>&1
 sudo rm -rf ~/.zshrc >/dev/null 2>&1
 sudo rm -rf ~/.bashrc >/dev/null 2>&1
-sudo rm -rf ~/.p10k.zsh >/dev/null 2>&1
-sudo rm -rf ~/.bashrc >/dev/null 2>&1
 sudo rm -rf ~/.profile >/dev/null 2>&1
-sudo rm -rf ~/.zprofile >/dev/null 2>&1
+# sudo rm -rf ~/.zprofile >/dev/null 2>&1
 sudo rm -rf ~/Brewfile >/dev/null 2>&1
 sudo rm -rf ~/.warp >/dev/null 2>&1
 sudo rm -rf ~/.config/zed >/dev/null 2>&1
 sudo rm -rf ~/.config/bat >/dev/null 2>&1
 sudo rm -rf ~/.config/nvim >/dev/null 2>&1
+sudo rm -rf ~/.config/alacritty >/dev/null 2>&1
+sudo rm -rf ~/.config/ohmyposh >/dev/null 2>&1
+sudo rm -rf ~/.config/zellij >/dev/null 2>&1
+sudo rm -rf ~/.config/atuin >/dev/null 2>&1
 
 SYMLINKS=()
 ln -sf ~/.dotfiles/.gitconfig ~/.gitconfig
@@ -44,8 +46,8 @@ SYMLINKS+=('.bashrc ')
 ln -sf ~/.dotfiles/terminal/.profile ~/.profile
 SYMLINKS+=('.profile ')
 
-ln -sf ~/.dotfiles/terminal/.zprofile ~/.zprofile
-SYMLINKS+=('.zprofile ')
+# ln -sf ~/.dotfiles/terminal/.zprofile ~/.zprofile
+# SYMLINKS+=('.zprofile ')
 
 ln -sf ~/.dotfiles/Brewfile ~/Brewfile
 SYMLINKS+=('Brewfile')
@@ -64,6 +66,18 @@ ln -sf ~/.dotfiles/zed/settings.json ~/.config/zed/settings.json
 ln -sf ~/.dotfiles/zed/keymap.json ~/.config/zed/keymap.json
 SYMLINKS+=('zed')
 
+ln -sf ~/.dotfiles/alacritty/ ~/.config/alacritty
+SYMLINKS+=('alacritty')
+
+ln -sf ~/.dotfiles/ohmyposh/ ~/.config/ohmyposh
+SYMLINKS+=('ohmyposh')
+
+ln -sf ~/.dotfiles/zellij/ ~/.config/zellij
+SYMLINKS+=('zellij')
+
+ln -sf ~/.dotfiles/atuin/ ~/.config/atuin
+SYMLINKS+=('atuin')
+
 echo "The following symlinks have been created:\n"
 echo ${SYMLINKS[@]}
 
@@ -78,21 +92,18 @@ bat cache --build
 echo "----activating pnpm----"
 # activate pnpm and install some global deps
 if node --version &>/dev/null; then
-	corepack enable
-	corepack prepare pnpm@latest --activate
+  corepack enable
+  corepack prepare pnpm@latest --activate
+  pnpm setup
 else
-	echo "Node not installed correctly, please check and activate pnpm manually"
+  echo "Node not installed correctly, please check and activate pnpm manually"
 fi
 
 echo "----installing rust---"
 if cargo --version &>/dev/null; then
-	echo "Rust is already installed, skipping"
+  echo "Rust is already installed, skipping"
 else
-	curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+  curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 fi
-
-# echo "----installing ohmyzsh----"
-# install ohmyzsh and the currently used theme
-# sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 echo "----Installation complete----"
