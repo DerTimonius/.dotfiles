@@ -2,8 +2,9 @@
 if [[ -n $SSH_CONNECTION ]]; then
   export EDITOR='vim'
 else
-  export EDITOR='mvim'
+  export EDITOR='nvim'
 fi
+
 #
 # history setup
 HISTFILE=$HOME/.zhistory
@@ -71,7 +72,7 @@ _fzf_comprun() {
 }
 
 # all aliases
-alias inv="fzf --preview 'bat --color=always {}'| xargs nvim {}"
+alias inv='nvim $(fzf --preview="bat --color=always {}")'
 alias python="python3"
 alias lg="lazygit"
 alias ls="lsd"
