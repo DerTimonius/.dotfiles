@@ -1,0 +1,18 @@
+layout {
+    pane size=1 borderless=true {
+        plugin location="tab-bar"
+    }
+    pane split_direction="vertical" {
+        pane size="80%" name="Code"
+        pane split_direction="horizontal" {
+            pane name="Server" size="40%" command="nr" {
+                args "dev"
+            } 
+            pane name="Tests" size="60%"
+        } 
+    }
+    pane size=2 borderless=true {
+        plugin location="status-bar"
+    }
+}
+

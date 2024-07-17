@@ -346,7 +346,7 @@ theme "catppuccin-mocha"
 
 // The folder in which Zellij will look for layouts
 //
-layout_dir "./"
+layout_dir "/Users/timonjurschitsch/.config/zellij/layouts/"
 
 // The folder in which Zellij will look for themes
 //
