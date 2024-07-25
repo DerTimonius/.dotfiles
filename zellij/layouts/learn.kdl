@@ -1,0 +1,15 @@
+layout {
+    pane size=1 borderless=true {
+        plugin location="tab-bar"
+    }
+    pane split_direction="vertical" {
+        pane size="70%" name="Code" command="nvim" {
+            args "."
+          }
+        pane name="Tests"
+    }
+    pane size=2 borderless=true {
+        plugin location="status-bar"
+    }
+}
+

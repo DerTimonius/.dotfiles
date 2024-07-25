@@ -3,7 +3,9 @@ layout {
         plugin location="tab-bar"
     }
     pane split_direction="vertical" {
-        pane size="80%" name="Code"
+        pane size="80%" name="Code" command="nvim" {
+            args "."
+          }
         pane split_direction="horizontal" {
             pane name="Server" size="40%" command="nr" {
                 args "dev"
