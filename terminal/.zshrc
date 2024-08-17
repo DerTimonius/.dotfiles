@@ -67,6 +67,7 @@ _fzf_comprun() {
     cd)           fzf --preview 'cd --tree {} | head -200'   "$@" ;;
     export|unset) fzf --preview "eval 'echo \$'{}"         "$@" ;;
     ssh)          fzf --preview 'dig {}'                   "$@" ;;
+    git)          fzf                                      "$@" ;;
     *)            fzf --preview 'bat -n --color=always {}' "$@" ;;
   esac
 }
@@ -79,6 +80,8 @@ alias ls="lsd"
 alias vim="nvim"
 alias cat="bat"
 alias cd="z"
+alias gbi='git switch $(git branch | fzf)'
+alias zat='zellij attach $(zellij ls | fzf | sed "s/\[32;1\(.*\) \[.*/\1/g")'
 
 export PATH=$PATH:$HOME/go/bin
 

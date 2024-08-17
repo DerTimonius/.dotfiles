@@ -75,7 +75,7 @@ SYMLINKS+=('ohmyposh')
 ln -sf ~/.dotfiles/zellij/ ~/.config/zellij
 SYMLINKS+=('zellij')
 
-ln -sf ~/.dotfiles/atuin/ ~/.config/atuin
+ln -sf ~/.dotfiles/atuin/config.toml ~/.config/atuin/config.toml
 SYMLINKS+=('atuin')
 
 echo "The following symlinks have been created:\n"
