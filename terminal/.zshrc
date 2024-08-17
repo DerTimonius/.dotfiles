@@ -45,7 +45,7 @@ export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_ALT_C_COMMAND="fd --type=d --hidden --strip-cwd-prefix --exclude .git"
 export FZF_CTRL_T_OPTS="--preview 'bat -n --line-range :500 {}'"
 export FZF_ALT_C_OPTS="--preview 'ls --tree {} | head -200'"
-export FZF_DEFAULT_OPTS='--preview "bat --color=always {}"'
+# export FZF_DEFAULT_OPTS='--preview "bat --color=always {}"'
 
 # Use fd (https://github.com/sharkdp/fd) for listing path candidates.
 # - The first argument to the function ($1) is the base path to start traversal
@@ -81,7 +81,7 @@ alias vim="nvim"
 alias cat="bat"
 alias cd="z"
 alias gbi='git switch $(git branch | fzf)'
-alias zat='zellij attach $(zellij ls | fzf | sed "s/\[32;1\(.*\) \[.*/\1/g")'
+alias zat='zellij attach $(zellij ls -s | fzf)'
 
 export PATH=$PATH:$HOME/go/bin
 
