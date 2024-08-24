@@ -26,6 +26,7 @@ sudo rm -rf ~/.config/zed >/dev/null 2>&1
 sudo rm -rf ~/.config/bat >/dev/null 2>&1
 sudo rm -rf ~/.config/nvim >/dev/null 2>&1
 sudo rm -rf ~/.config/alacritty >/dev/null 2>&1
+sudo rm -rf ~/.config/wezterm >/dev/null 2>&1
 sudo rm -rf ~/.config/ohmyposh >/dev/null 2>&1
 sudo rm -rf ~/.config/zellij >/dev/null 2>&1
 sudo rm -rf ~/.config/atuin >/dev/null 2>&1
@@ -77,6 +78,9 @@ SYMLINKS+=('zellij')
 
 ln -sf ~/.dotfiles/atuin/config.toml ~/.config/atuin/config.toml
 SYMLINKS+=('atuin')
+
+ln -sf ~/.dotfiles/wezterm/ ~/.config/wezterm
+SYMLINKS+=('wezterm')
 
 echo "The following symlinks have been created:\n"
 echo ${SYMLINKS[@]}
