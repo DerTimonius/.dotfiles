@@ -1,4 +1,10 @@
 local wezterm = require("wezterm")
+local mux = wezterm.mux
+
+wezterm.on("gui-startup", function()
+	local _, _, window = mux.spawn_window({})
+	window:gui_window():maximize()
+end)
 
 local config = wezterm.config_builder()
 
@@ -15,6 +21,11 @@ config = {
 	font = wezterm.font("MonaspiceAr Nerd Font", { weight = "Medium", stretch = "Normal", style = "Normal" }),
 	send_composed_key_when_left_alt_is_pressed = true,
 	send_composed_key_when_right_alt_is_pressed = false,
+	background = {
+		{ source = {
+			Color = "#0E0E25",
+		}, width = "100%", height = "100%" },
+	},
 }
 
 return config
