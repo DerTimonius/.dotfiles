@@ -1,15 +1,15 @@
 local M = {}
 
 function M.create_floating_window()
-  local width = vim.o.columns
-  local height = vim.o.lines - 1
+  local width = vim.o.columns - 4
+  local height = vim.o.lines - 4
   local buf = vim.api.nvim_create_buf(false, true)
   local opts = {
     relative = "editor",
     width = width,
     height = height,
-    col = 0,
-    row = 0,
+    col = 1,
+    row = 1,
     anchor = "NW",
     style = "minimal",
     border = "rounded",
