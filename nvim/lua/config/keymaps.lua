@@ -40,6 +40,7 @@ set("n", "<leader>ll", "<cmd>Lazy<CR>", { desc = "Open Lazy GUI" })
 set("n", "<leader>lx", "<cmd>LazyExtras<CR>", { desc = "Open LazyExtras" })
 set("n", "<leader>nn", "<cmd>Noice<CR>", { desc = "Open Noice history" })
 
+-- delete some keymaps
 del("n", "<leader>l")
 del("n", "<leader>ft")
 del("n", "<leader>fT")

@@ -5,7 +5,7 @@ return {
       vtsls = {
         enabled = false,
       },
-      tsserver = {
+      ts_ls = {
         enabled = true,
         settings = {
           typescript = {
@@ -26,6 +26,19 @@ return {
         },
         keys = {
           {
+            "<leader>ci",
+            function()
+              vim.lsp.buf.code_action({
+                apply = true,
+                context = {
+                  only = { "source.addMissingImports.ts" },
+                  diagnostics = {},
+                },
+              })
+            end,
+            desc = "Add missing imports",
+          },
+          {
             "<leader>co",
             function()
               vim.lsp.buf.code_action({
@@ -39,7 +52,7 @@ return {
             desc = "Organize Imports",
           },
           {
-            "<leader>cR",
+            "<leader>cu",
             function()
               vim.lsp.buf.code_action({
                 apply = true,
@@ -51,11 +64,24 @@ return {
             end,
             desc = "Remove Unused Imports",
           },
+          {
+            "<leader>cD",
+            function()
+              vim.lsp.buf.code_action({
+                apply = true,
+                context = {
+                  only = { "source.fixAll.ts" },
+                  diagnostics = {},
+                },
+              })
+            end,
+            desc = "Fix all diagnostics",
+          },
         },
       },
     },
     setup = {
-      tsserver = function()
+      ts_ls = function()
         return false
       end,
       vtsls = function()
