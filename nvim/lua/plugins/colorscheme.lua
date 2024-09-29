@@ -21,15 +21,11 @@ return {
     },
   },
   {
-    "LazyVim/LazyVim",
-    opts = {
-      colorscheme = "catppuccin",
-    },
-  },
-  {
     "yorumicolors/yorumi.nvim",
   },
   { "diegoulloao/neofusion.nvim" },
+  { "rebelot/kanagawa.nvim" },
+  { "sho-87/kanagawa-paper.nvim" },
   {
     "olivercederborg/poimandres.nvim",
     config = function()
@@ -45,11 +41,11 @@ return {
   },
   {
     "zaldih/themery.nvim",
-    lazy = true,
+    lazy = false,
     config = function()
       require("themery").setup({
         livePreview = true,
-        themes = { "catppuccin", "yorumi", "neofusion", "poimandres", "tokyonight" },
+        themes = { "catppuccin", "yorumi", "neofusion", "poimandres", "tokyonight", "kanagawa", "kanagawa-paper" },
       })
     end,
     keys = {
