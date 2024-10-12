@@ -22,7 +22,6 @@ sudo rm -rf ~/.profile >/dev/null 2>&1
 # sudo rm -rf ~/.zprofile >/dev/null 2>&1
 sudo rm -rf ~/Brewfile >/dev/null 2>&1
 sudo rm -rf ~/.warp >/dev/null 2>&1
-sudo rm -rf ~/.config/zed >/dev/null 2>&1
 sudo rm -rf ~/.config/bat >/dev/null 2>&1
 sudo rm -rf ~/.config/nvim >/dev/null 2>&1
 sudo rm -rf ~/.config/alacritty >/dev/null 2>&1
@@ -62,10 +61,6 @@ SYMLINKS+=('nvim')
 
 ln -sf ~/.dotfiles/bat/ ~/.config/bat
 SYMLINKS+=('bat')
-
-ln -sf ~/.dotfiles/zed/settings.json ~/.config/zed/settings.json
-ln -sf ~/.dotfiles/zed/keymap.json ~/.config/zed/keymap.json
-SYMLINKS+=('zed')
 
 ln -sf ~/.dotfiles/alacritty/ ~/.config/alacritty
 SYMLINKS+=('alacritty')
