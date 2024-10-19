@@ -32,10 +32,10 @@ eval "$(zoxide init zsh)"
 
 export BAT_THEME="Catppuccin Mocha"
 
-if [ "$TERM_PROGRAM" != "Apple_Terminal" ]; then
-  eval "$(oh-my-posh init zsh --config ~/.config/ohmyposh/config.toml)"
-fi
-
+# if [ "$TERM_PROGRAM" != "Apple_Terminal" ]; then
+#   eval "$(oh-my-posh init zsh --config ~/.config/ohmyposh/config.toml)"
+# fi
+eval "$(starship init zsh)"
 # setup fzf
 eval "$(fzf --zsh)"
 
