@@ -7,6 +7,7 @@ local del = vim.keymap.del
 
 set("i", "<C-c>", "Esc")
 set("v", "<C-c>", "Esc")
+vim.cmd.cabbrev("W", "w")
 
 -- weird remap for Mac reasons...
 set("n", "º", "<cmd>m .+1<cr>==", { desc = "Move down" })

@@ -17,6 +17,13 @@ return {
       {
         filter = {
           event = "error",
+          find = "No ESLint configuration found",
+        },
+        opts = { skip = true },
+      },
+      {
+        filter = {
+          event = "error",
           find = "Could not find config file",
         },
         opts = { skip = true },
