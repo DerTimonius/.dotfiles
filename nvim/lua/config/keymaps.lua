@@ -34,7 +34,7 @@ set(
 set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
 
 -- lsp restart keymaps
-set("n", "<leader>ts", "<cmd>LspRestart ts-ls<CR>", { desc = "Restart tsserver" })
+set("n", "<leader>ts", "<cmd>LspRestart ts_ls<CR>", { desc = "Restart tsserver" })
 set("n", "<leader>es", "<cmd>LspRestart eslint-lsp<CR>", { desc = "Restart ESLint" })
 
 set("n", "<leader>ll", "<cmd>Lazy<CR>", { desc = "Open Lazy GUI" })
