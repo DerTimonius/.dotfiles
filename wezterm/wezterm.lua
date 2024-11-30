@@ -23,7 +23,7 @@ config = {
 	send_composed_key_when_right_alt_is_pressed = false,
 	background = {
 		{ source = {
-			Color = "#0E0E25",
+			Color = "#0F0F21",
 		}, width = "100%", height = "100%" },
 	},
 }

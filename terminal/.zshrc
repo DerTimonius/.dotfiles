@@ -45,6 +45,12 @@ export FZF_ALT_C_COMMAND="fd --type=d --hidden --strip-cwd-prefix --exclude .git
 export FZF_CTRL_T_OPTS="--preview 'bat -n --line-range :500 {}'"
 export FZF_ALT_C_OPTS="--preview 'ls --tree {} | head -200'"
 # export FZF_DEFAULT_OPTS='--preview "bat --color=always {}"'
+export FZF_DEFAULT_OPTS=" \
+--color=bg+:#313244,bg:#0F0F21,spinner:#f5e0dc,hl:#f38ba8 \
+--color=fg:#cdd6f4,header:#f38ba8,info:#cba6f7,pointer:#f5e0dc \
+--color=marker:#b4befe,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8 \
+--color=selected-bg:#45475a \
+--multi"
 
 # Use fd (https://github.com/sharkdp/fd) for listing path candidates.
 # - The first argument to the function ($1) is the base path to start traversal
