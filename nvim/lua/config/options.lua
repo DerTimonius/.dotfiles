@@ -9,3 +9,5 @@ vim.filetype.add({
     mdx = "markdown",
   },
 })
+vim.o.termguicolors = true
+vim.g.lazyvim_prettier_needs_config = true
