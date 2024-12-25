@@ -16,7 +16,7 @@ config = {
 	color_scheme = "Catppuccin Mocha",
 	use_fancy_tab_bar = false,
 	tab_bar_at_bottom = false,
-	font_size = 16,
+	font_size = 17,
 	enable_tab_bar = false,
 	font = wezterm.font("MonaspiceAr Nerd Font", { weight = "Medium", stretch = "Normal", style = "Normal" }),
 	send_composed_key_when_left_alt_is_pressed = true,
