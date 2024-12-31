@@ -32,6 +32,8 @@ set(
   { desc = "Rename word under the cursor (and every instance)" }
 )
 set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
+set("n", "<leader><leader>x", "<cmd>source %<CR>", { desc = "Source current file" })
+set("n", "<leader>tf", "<Plug>PlenaryTestFile", { noremap = false, desc = "Test file in current buf with Plenary" })
 
 -- lsp restart keymaps
 set("n", "<leader>ts", "<cmd>LspRestart ts_ls<CR>", { desc = "Restart tsserver" })
