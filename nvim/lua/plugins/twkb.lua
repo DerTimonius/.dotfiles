@@ -5,7 +5,6 @@ return {
       require("twkb").setup()
     end,
     keys = {
-
       { "<leader>tw", "<cmd>Twkb<CR>", desc = "Open twkb" },
     },
   },
