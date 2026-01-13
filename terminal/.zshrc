@@ -81,12 +81,15 @@ _fzf_comprun() {
 alias inv='nvim $(fzf --preview="bat --color=always {}")'
 alias python="python3"
 alias lg="lazygit"
-alias ls="lsd"
+alias ls="eza"
 alias vim="nvim"
 alias cat="bat"
 alias cd="z"
 alias gbi='git switch $(git branch | fzf)'
 alias zat='zellij attach $(zellij ls -s | fzf)'
+alias tmi='tmux attach -t $(tmux ls -F "#{session_name}" | fzf)'
+
+alias sort-json="~/.dotfiles/utils/sort_json.sh"
 
 export PATH=$PATH:$HOME/go/bin
 
@@ -133,3 +136,6 @@ eval "$(fnm env --use-on-cd --shell zsh)"
 if [ -f ~/.zshrc.private ]; then
   source ~/.zshrc.private
 fi
+
+# opencode
+export PATH=/Users/timonjurschitsch/.opencode/bin:$PATH

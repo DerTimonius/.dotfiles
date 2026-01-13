@@ -1,8 +1,8 @@
 return {
   {
     "saghen/blink.cmp",
+    enabled = false,
     opts = {
-
       sources = {
         default = { "lsp", "path", "buffer" },
         per_filetype = {
