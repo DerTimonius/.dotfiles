@@ -1,0 +1,26 @@
+sort_order = ["tmux", "config", "zoxide"]
+
+[default_session]
+startup_command = "bash ~/.config/sesh/standard.sh"
+preview_command = "eza --all --git --icons --color=always {}"
+
+[[session]]
+name = "Downloads"
+path = "~/Downloads"
+startup_command = "yazi"
+
+[[session]]
+name = "dotfiles"
+path = "~/c/dotfiles"
+
+[[session]]
+name = "tmux config"
+path = "~/.dotfiles/tmux"
+startup_command = "nvim tmux.conf"
+preview_command = "bat --language=bash --style=snip --color=always ~/.dotfiles/tmux/tmux.conf"
+
+[[session]]
+name = "sesh config"
+path = "~/.config/sesh"
+startup_command = "nvim sesh.toml"
+preview_command = "bat --language=bash --style=snip --color=always ~/.config/sesh/sesh.toml"
