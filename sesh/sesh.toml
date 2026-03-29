@@ -11,7 +11,7 @@ startup_command = "yazi"
 
 [[session]]
 name = "dotfiles"
-path = "~/c/dotfiles"
+path = "~/.dotfiles"
 
 [[session]]
 name = "tmux config"
