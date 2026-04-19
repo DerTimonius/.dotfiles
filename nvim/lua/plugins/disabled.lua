@@ -7,8 +7,4 @@ return {
     "nvim-mini/mini.ai",
     enabled = false,
   },
-  {
-    "ibhagwan/fzf-lua",
-    enabled = false,
-  },
 }

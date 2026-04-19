@@ -2,6 +2,9 @@ prSections:
   - title: My Pull Requests
     filters: is:open author:@me
     type: null
+  - title: All other PRs
+    filters: is:open -author:@me
+    type: null
   - title: Needs My Review
     filters: is:open review-requested:@me
     type: null
@@ -66,7 +69,11 @@ keybindings:
   issues: []
   prs: []
   branches: []
-repoPaths: {}
+repoPaths:
+  dertimonius/*: ~/Coding/projects/*
+  philipjt/*: ~/Coding/job/realitiq/*
+  philipjt/gle360-quicksource: ~/Coding/job/realitiq/gle-quicksource
+  cfs-gmbh/*: ~/Coding/job/ava/*
 theme:
   colors:
     text:
