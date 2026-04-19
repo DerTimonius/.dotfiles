@@ -1,0 +1,23 @@
+[metadata]
+name = "opencode"
+description = "Manage opencode sessions"
+requirements = ["opencode"]
+
+[source]
+command = ["opencode session list"]
+# ansi = true
+# output = "{strip_ansi|split: :1..|join: }"
+
+[keybindings]
+enter = "actions:connect"
+ctrl-d = ["actions:delete", "reload_source"]
+
+[actions.connect]
+description = "Connect to selected session"
+command = "echo '{strip_ansi|split: :1..|join: }'"
+mode = "execute"
+
+[actions.delete]
+description = "Delete selected session"
+command = "echo '{strip_ansi|split: :1..|join: }'"
+mode = "execute"
