@@ -1,14 +1,13 @@
-{ inputs, ... }: {
-
-  flake.nixosModules.homeManager = { pkgs, ... }: {
+{inputs, ...}: {
+  flake.nixosModules.homeManager = {pkgs, ...}: {
     imports = [
-      inputs.home-manager.nixosModules.default 
+      inputs.home-manager.nixosModules.default
     ];
 
     home-manager = {
       useGlobalPkgs = true;
       useUserPackages = true;
+      backupFileExtension = "bak";
     };
   };
-
 }
