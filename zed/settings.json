@@ -11,6 +11,7 @@
     "font_size": 14.0
   },
   "agent": {
+    "dock": "right",
     "default_profile": "ask",
     "default_model": {
       "provider": "opencode",

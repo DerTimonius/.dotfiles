@@ -26,6 +26,8 @@
       # git stuff
       gh
       graphite-cli
+      lazygit
+      lazydocker
       # editors
       vim
       neovim

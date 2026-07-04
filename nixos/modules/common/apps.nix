@@ -8,6 +8,7 @@
       # communication
       slack
       signal-desktop
+      teams-for-linux
 
       # music
       deezer-desktop
@@ -20,6 +21,8 @@
       localsend
       proton-pass
       tailscale
+      grim
+      slurp
     ];
   };
 }

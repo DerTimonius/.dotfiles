@@ -34,8 +34,8 @@
     xdg.configFile."yazi".source = config.lib.file.mkOutOfStoreSymlink /home/timon/.dotfiles/yazi;
     xdg.configFile."sesh".source = config.lib.file.mkOutOfStoreSymlink /home/timon/.dotfiles/sesh;
     xdg.configFile."wezterm".source = config.lib.file.mkOutOfStoreSymlink /home/timon/.dotfiles/wezterm;
+    xdg.configFile."zed".source = config.lib.file.mkOutOfStoreSymlink /home/timon/.dotfiles/zed;
     xdg.configFile."starship.toml".source = config.lib.file.mkOutOfStoreSymlink /home/timon/.dotfiles/starship/starship.toml;
     home.file.".tmux.conf".source = config.lib.file.mkOutOfStoreSymlink /home/timon/.dotfiles/tmux/tmux.conf;
-    home.file.".zshrc".source = /home/timon/.dotfiles/terminal/linux/.zshrc;
   };
 }
