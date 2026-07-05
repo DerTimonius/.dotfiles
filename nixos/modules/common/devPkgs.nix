@@ -1,12 +1,13 @@
 {...}: {
   flake.homeModules.devPkgs = {pkgs, ...}: {
     home.packages = with pkgs; [
-      # languages
+      # languages and runtimes
       go
       rustup
       fnm
       gcc
       gleam
+      bun
       # terminal and tools
       wezterm
       starship
@@ -23,6 +24,8 @@
       jq
       ripgrep
       hyperfine
+      # AI stuff
+      opencode
       # git stuff
       gh
       graphite-cli

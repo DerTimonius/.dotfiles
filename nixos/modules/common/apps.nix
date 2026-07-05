@@ -23,6 +23,7 @@
       tailscale
       grim
       slurp
+      hyprpicker
     ];
   };
 }

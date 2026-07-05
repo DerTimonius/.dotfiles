@@ -31,7 +31,7 @@ hl.monitor({
   output   = "DP-3",
   mode     = "3840x2160@60",
   position = "0x0",
-  scale    = 1.25
+  scale    = 1.33,
 })
 
 
@@ -270,8 +270,7 @@ hl.bind(mainMod .. " + Q", hl.dsp.window.close(), { desc = "Close current window
 hl.bind(mainMod .. " + ALT + M",
   hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'"),
   { desc = "Shut down hyprland" })
-hl.bind(ctrlMod .. " + up", hl.dsp.window.fullscreen({ mode = "maximized" }),
-  { desc = "Open file manager " .. fileManager })
+hl.bind(ctrlMod .. " + up", hl.dsp.window.fullscreen({ mode = "maximized" }), { desc = "Maximize screen " })
 hl.bind(ctrlMod .. " + F", hl.dsp.exec_cmd(fileManager), { desc = "Open file manager " .. fileManager })
 hl.bind(mainMod .. " + Space", hl.dsp.exec_cmd(ipc .. "launcher toggle"), { desc = "Open launcher" })
 hl.bind(mainMod .. " + P", hl.dsp.exec_cmd('grim -g "$(slurp)" | wl-copy'), { desc = "Take screenshot" })
@@ -279,12 +278,14 @@ hl.bind(mainMod .. " + SHIFT + P", hl.dsp.exec_cmd("hyprpicker | wl-copy"), { de
 hl.bind(altMod .. " + T", utils.layout_bind({
   dwindle = hl.dsp.layout("togglesplit"),
   scrolling = hl.dsp.layout("swapcol l"),
-})) -- dwindle only
+}), { desc = "togglesplit in dwindle only" }) -- dwindle only
 
 -- Programs --
 hl.bind(ctrlMod .. " + Z", hl.dsp.exec_cmd(browser), { desc = "Open " .. browser })
 hl.bind(ctrlMod .. " + B", hl.dsp.exec_cmd("brave"), { desc = "Open brave" })
 hl.bind(ctrlMod .. " + M", hl.dsp.exec_cmd("deezer-desktop"), { desc = "Open Deezer" })
+hl.bind(ctrlMod .. " + C", hl.dsp.exec_cmd("zed"), { desc = "Open Zed" })
+hl.bind(ctrlMod .. " + S", hl.dsp.exec_cmd("teams-for-linux"), { desc = "Open Microsoft Teams" })
 hl.bind(ctrlMod .. " + H", hl.dsp.exec_cmd("yaak-app"), { desc = "Open yaak" })
 
 -- Move focus with mainMod + arrow keys
@@ -296,13 +297,13 @@ hl.bind(mainMod .. " + H", hl.dsp.focus({ direction = "left" }), { desc = "Move 
 hl.bind(mainMod .. " + L", hl.dsp.focus({ direction = "right" }), { desc = "Move focus right" })
 hl.bind(mainMod .. " + K", hl.dsp.focus({ direction = "up" }), { desc = "Move focus up" })
 hl.bind(mainMod .. " + J", hl.dsp.focus({ direction = "down" }), { desc = "Move focus down" })
-hl.bind(altMod .. " + H", hl.dsp.layout("swapsplit"))
-hl.bind(altMod .. " + L", hl.dsp.layout("swapsplit"))
-hl.bind(altMod .. " + K", hl.dsp.layout("swapsplit"))
-hl.bind(altMod .. " + J", hl.dsp.layout("swapsplit"))
+hl.bind(altMod .. " + H", hl.dsp.layout("swapsplit"), { desc = "Swapsplit" })
+hl.bind(altMod .. " + L", hl.dsp.layout("swapsplit"), { desc = "Swapsplit" })
+hl.bind(altMod .. " + K", hl.dsp.layout("swapsplit"), { desc = "Swapsplit" })
+hl.bind(altMod .. " + J", hl.dsp.layout("swapsplit"), { desc = "Swapsplit" })
 -- resize layout --
-hl.bind(mainMod .. " + SHIFT + up", hl.dsp.layout("splitratio +0.1"))
-hl.bind(mainMod .. " + SHIFT + down", hl.dsp.layout("splitratio -0.1"))
+hl.bind(mainMod .. " + SHIFT + up", hl.dsp.layout("splitratio +0.1"), { desc = "Resize window (increase)" })
+hl.bind(mainMod .. " + SHIFT + down", hl.dsp.layout("splitratio -0.1"), { desc = "Resize window (descrease)" })
 
 -- Switch workspaces with mainMod + [0-9]
 -- Move active window to a workspace with mainMod + SHIFT + [0-9]
@@ -343,13 +344,15 @@ hl.bind("XF86AudioPlay", hl.dsp.exec_cmd(ipc .. "media play"), { locked = true }
 hl.bind("XF86AudioPrev", hl.dsp.exec_cmd(ipc .. "media previous"), { locked = true })
 
 -- noctalia stuff
-hl.bind(mainMod .. " + S", hl.dsp.exec_cmd(ipc .. "settings toggle"))
-hl.bind(mainMod .. " + Escape", hl.dsp.exec_cmd(ipc .. "sessionMenu toggle"))
-hl.bind(altMod .. " + N", hl.dsp.exec_cmd(ipc .. "notifications toggleHistory"))
-hl.bind(ctrlMod .. " + E", hl.dsp.exec_cmd(ipc .. "launcher emoji"))
-hl.bind(mainMod .. " + SHIFT + N", hl.dsp.exec_cmd(ipc .. "notifications dismissAll"))
-hl.bind(mainMod .. " + SHIFT + V", hl.dsp.exec_cmd(ipc .. "launcher clipboard"))
-hl.bind(ctrlMod .. " + W", hl.dsp.exec_cmd(ipc .. "wallpaper random"))
+hl.bind(mainMod .. " + S", hl.dsp.exec_cmd(ipc .. "settings toggle"), { desc = "Open noctalia settings" })
+hl.bind(mainMod .. " + Escape", hl.dsp.exec_cmd(ipc .. "sessionMenu toggle"), { desc = "Open noctalia session" })
+hl.bind(altMod .. " + N", hl.dsp.exec_cmd(ipc .. "notifications toggleHistory"), { desc = "Open notifications" })
+hl.bind(ctrlMod .. " + E", hl.dsp.exec_cmd(ipc .. "launcher emoji"), { desc = "Open emoji picker" })
+hl.bind(mainMod .. " + SHIFT + N", hl.dsp.exec_cmd(ipc .. "notifications dismissAll"),
+  { desc = "Dismiss all notifications" })
+hl.bind(mainMod .. " + SHIFT + V", hl.dsp.exec_cmd(ipc .. "launcher clipboard"), { desc = "Show clipboard history" })
+hl.bind(ctrlMod .. " + W", hl.dsp.exec_cmd(ipc .. "wallpaper random"), { desc = "Switch to random wallpaper" })
+hl.bind(mainMod .. " + SHIFT + K", hl.dsp.exec_cmd(ipc .. "plugin:keybind-cheatsheet toggle"))
 
 
 --------------------------------

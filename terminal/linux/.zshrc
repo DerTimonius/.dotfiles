@@ -82,6 +82,7 @@ alias cd="z"
 alias gbi='git switch $(git branch | fzf)'
 alias zat='zellij attach $(zellij ls -s | fzf)'
 alias tmi='tmux attach -t $(tmux ls -F "#{session_name}" | fzf)'
+alias zed="zeditor"
 
 alias sort-json="~/.dotfiles/utils/sort_json.sh"
 
