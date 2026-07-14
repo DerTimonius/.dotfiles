@@ -58,6 +58,7 @@
 
     # Enable the OpenSSH daemon.
     services.openssh.enable = true;
+    programs.gpu-screen-recorder.enable = true;
 
     fonts = {
       enableDefaultPackages = true;
@@ -65,6 +66,7 @@
         nerd-fonts.noto
         nerd-fonts.fira-code
         nerd-fonts.monaspace
+        _0xproto
       ];
       fontconfig = {
         defaultFonts = {

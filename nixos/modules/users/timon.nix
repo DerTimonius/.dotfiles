@@ -17,6 +17,10 @@
         push.autoSetupRemote = true;
         merge.conflictstyle = "zdiff3";
         core.editor = "nvim";
+        core.pager = "delta";
+        delta.navigate = true;
+        delta.dark = true;
+        interactive.diffFilter = "delta --color-only";
       };
     };
 
@@ -35,6 +39,7 @@
     xdg.configFile."sesh".source = config.lib.file.mkOutOfStoreSymlink /home/timon/.dotfiles/sesh;
     xdg.configFile."wezterm".source = config.lib.file.mkOutOfStoreSymlink /home/timon/.dotfiles/wezterm;
     xdg.configFile."zed".source = config.lib.file.mkOutOfStoreSymlink /home/timon/.dotfiles/zed;
+    xdg.configFile."noctalia".source = config.lib.file.mkOutOfStoreSymlink /home/timon/.dotfiles/noctalia;
     xdg.configFile."starship.toml".source = config.lib.file.mkOutOfStoreSymlink /home/timon/.dotfiles/starship/starship.toml;
     home.file.".tmux.conf".source = config.lib.file.mkOutOfStoreSymlink /home/timon/.dotfiles/tmux/tmux.conf;
   };

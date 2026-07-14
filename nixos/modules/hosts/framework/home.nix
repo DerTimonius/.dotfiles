@@ -10,6 +10,7 @@
         self.homeModules.timonShared
         self.homeModules.devPkgs
         self.homeModules.apps
+        self.homeModules.gaming
       ];
     };
   };

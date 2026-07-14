@@ -24,6 +24,7 @@
       jq
       ripgrep
       hyperfine
+      btop
       # AI stuff
       opencode
       # git stuff
@@ -37,8 +38,12 @@
       zed-editor
       # GUIs
       yaak
-      # misc
+      beekeeper-studio
+      # nix stuff
       alejandra
+      statix
+      nh
+      # misc
       mise
       gum
       fastfetch

@@ -24,6 +24,9 @@
       grim
       slurp
       hyprpicker
+      wl-clipboard
+      wtype
+      gpu-screen-recorder-gtk
     ];
   };
 }
