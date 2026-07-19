@@ -31,7 +31,7 @@ hl.monitor({
   output   = "DP-3",
   mode     = "3840x2160@60",
   position = "0x0",
-  scale    = 1.33,
+  scale    = 1.67,
 })
 
 
@@ -232,7 +232,7 @@ hl.config({
 
     follow_mouse = 1,
 
-    sensitivity  = 0, -- -1.0 - 1.0, 0 means no modification.
+    sensitivity  = -0.5, -- -1.0 - 1.0, 0 means no modification.
 
     touchpad     = {
       natural_scroll = true,
@@ -273,7 +273,7 @@ hl.bind(mainMod .. " + ALT + M",
 hl.bind(ctrlMod .. " + up", hl.dsp.window.fullscreen({ mode = "maximized" }), { desc = "Maximize screen " })
 hl.bind(ctrlMod .. " + F", hl.dsp.exec_cmd(fileManager), { desc = "Open file manager " .. fileManager })
 hl.bind(mainMod .. " + Space", hl.dsp.exec_cmd(ipc .. "launcher toggle"), { desc = "Open launcher" })
-hl.bind(mainMod .. " + P", hl.dsp.exec_cmd('grim -g "$(slurp)" | wl-copy'), { desc = "Take screenshot" })
+hl.bind(mainMod .. " + P", hl.dsp.exec_cmd('grim -g "$(slurp)" - | wl-copy'), { desc = "Take screenshot" })
 hl.bind(mainMod .. " + SHIFT + P", hl.dsp.exec_cmd("hyprpicker | wl-copy"), { desc = "Pick color" })
 hl.bind(altMod .. " + T", utils.layout_bind({
   dwindle = hl.dsp.layout("togglesplit"),
@@ -284,7 +284,7 @@ hl.bind(altMod .. " + T", utils.layout_bind({
 hl.bind(ctrlMod .. " + Z", hl.dsp.exec_cmd(browser), { desc = "Open " .. browser })
 hl.bind(ctrlMod .. " + B", hl.dsp.exec_cmd("brave"), { desc = "Open brave" })
 hl.bind(ctrlMod .. " + M", hl.dsp.exec_cmd("deezer-desktop"), { desc = "Open Deezer" })
-hl.bind(ctrlMod .. " + C", hl.dsp.exec_cmd("zed"), { desc = "Open Zed" })
+hl.bind(ctrlMod .. " + C", hl.dsp.exec_cmd("zeditor"), { desc = "Open Zed" })
 hl.bind(ctrlMod .. " + S", hl.dsp.exec_cmd("teams-for-linux"), { desc = "Open Microsoft Teams" })
 hl.bind(ctrlMod .. " + H", hl.dsp.exec_cmd("yaak-app"), { desc = "Open yaak" })
 
@@ -340,7 +340,7 @@ hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd(ipc .. "brightness decrease"), 
 -- Requires playerctl
 hl.bind("XF86AudioNext", hl.dsp.exec_cmd(ipc .. "media next"), { locked = true })
 hl.bind("XF86AudioPause", hl.dsp.exec_cmd(ipc .. "media pause"), { locked = true })
-hl.bind("XF86AudioPlay", hl.dsp.exec_cmd(ipc .. "media play"), { locked = true })
+hl.bind("XF86AudioPlay", hl.dsp.exec_cmd(ipc .. "media playPause"), { locked = true })
 hl.bind("XF86AudioPrev", hl.dsp.exec_cmd(ipc .. "media previous"), { locked = true })
 
 -- noctalia stuff
@@ -353,6 +353,7 @@ hl.bind(mainMod .. " + SHIFT + N", hl.dsp.exec_cmd(ipc .. "notifications dismiss
 hl.bind(mainMod .. " + SHIFT + V", hl.dsp.exec_cmd(ipc .. "launcher clipboard"), { desc = "Show clipboard history" })
 hl.bind(ctrlMod .. " + W", hl.dsp.exec_cmd(ipc .. "wallpaper random"), { desc = "Switch to random wallpaper" })
 hl.bind(mainMod .. " + SHIFT + K", hl.dsp.exec_cmd(ipc .. "plugin:keybind-cheatsheet toggle"))
+hl.bind(altMod .. " + 4", hl.dsp.exec_cmd("noctalia msg plugin noctalia/screen_recorder:service all toggle"))
 
 
 --------------------------------

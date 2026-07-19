@@ -44,6 +44,16 @@
       ];
     };
 
+    programs.gamemode.enable = true;
+    programs.steam = {
+      enable = true;
+    };
+    programs.gamescope = {
+      enable = true;
+      enableWsi = true;
+      capSysNice = false;
+    };
+
     virtualisation.docker = {
       enable = true;
     };

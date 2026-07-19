@@ -4,13 +4,13 @@ return {
     lazy = true,
     name = "catppuccin",
     opts = {
-      color_overrides = {
-        mocha = {
-          base = "#101021",
-          mantle = "#131324",
-          crust = "#0b0b1c",
-        },
-      },
+      -- color_overrides = {
+      --   mocha = {
+      --     base = "#101021",
+      --     mantle = "#131324",
+      --     crust = "#0b0b1c",
+      --   },
+      -- },
       dim_inactive = {
         enabled = true,
         shade = "dark",

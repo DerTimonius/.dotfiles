@@ -1,0 +1,3 @@
+[shell.screenshot]
+save_to_file = false
+copy_to_clipboard = true

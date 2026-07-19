@@ -39,6 +39,7 @@
       # GUIs
       yaak
       beekeeper-studio
+      tabularis
       # nix stuff
       alejandra
       statix
