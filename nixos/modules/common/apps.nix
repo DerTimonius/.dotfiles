@@ -14,19 +14,23 @@
       deezer-desktop
 
       # styling
-      inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
       bibata-cursors
+      comixcursors
 
-      # other stuff
+      # GUIs
       localsend
       proton-pass
       tailscale
+      rapidraw
+
+      # other stuff
       grim
       slurp
       hyprpicker
       wl-clipboard
       wtype
       gpu-screen-recorder-gtk
+      unzip
     ];
   };
 }

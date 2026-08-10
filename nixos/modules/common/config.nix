@@ -22,42 +22,49 @@
       LC_TIME = "de_AT.UTF-8";
     };
 
-    programs.hyprland = {
-      enable = true;
-      package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
-      portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
-    };
+    programs.niri.enable = true;
 
-    services.xserver.enable = true;
-    services.displayManager.gdm.enable = true;
-    services.displayManager.defaultSession = "hyprland";
-    services.desktopManager.gnome.enable = true;
-    services.displayManager.autoLogin = {
-      enable = true;
-      user = "timon";
-    };
+    services = {
+      xserver = {
+        enable = true;
+        xkb = {
+          layout = "de";
+          variant = "";
+        };
+      };
 
-    services.xserver.xkb = {
-      layout = "de";
-      variant = "";
+      desktopManager.gnome.enable = true;
+      displayManager = {
+        sddm = {
+          enable = true;
+          theme = "catppuccin-mocha-mauve";
+        };
+      };
+
+      printing.enable = true;
+
+      pulseaudio.enable = false;
+      pipewire = {
+        enable = true;
+        alsa.enable = true;
+        alsa.support32Bit = true;
+        pulse.enable = true;
+      };
+      openssh.enable = true;
     };
 
     console.keyMap = "de";
 
-    services.printing.enable = true;
-
-    services.pulseaudio.enable = false;
     security.rtkit.enable = true;
-    services.pipewire = {
-      enable = true;
-      alsa.enable = true;
-      alsa.support32Bit = true;
-      pulse.enable = true;
-    };
     nixpkgs.config.allowUnfree = true;
 
+    nixpkgs.overlays = [
+      (_final: _prev: {
+        unstable = inputs.nixpkgs-unstable.legacyPackages.${_final.system};
+      })
+    ];
+
     # Enable the OpenSSH daemon.
-    services.openssh.enable = true;
     programs.gpu-screen-recorder.enable = true;
 
     fonts = {

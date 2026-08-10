@@ -38,16 +38,18 @@
       zed-editor
       # GUIs
       yaak
-      beekeeper-studio
-      tabularis
       # nix stuff
       alejandra
       statix
       nh
+      comma
       # misc
       mise
       gum
       fastfetch
+      openssl
+      # from nixpkgs-unstable
+      unstable.tabularis
     ];
   };
 }

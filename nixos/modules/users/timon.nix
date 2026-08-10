@@ -1,9 +1,11 @@
 # Shared user configuration (Home Manager module)
-{...}: {
+_: {
   flake.homeModules.timonShared = {config, ...}: {
-    home.username = "timon";
-    home.homeDirectory = "/home/timon";
-    home.stateVersion = "26.05";
+    home = {
+      username = "timon";
+      homeDirectory = "/home/timon";
+      stateVersion = "26.05";
+    };
 
     programs.git = {
       enable = true;
@@ -24,23 +26,18 @@
       };
     };
 
-    programs.zsh = {
-      enable = true;
-      enableCompletion = true;
-      autosuggestion.enable = true;
-      syntaxHighlighting.enable = true;
+    xdg.configFile = {
+      "nvim".source = config.lib.file.mkOutOfStoreSymlink /home/timon/.dotfiles/nvim;
+      "atuin".source = config.lib.file.mkOutOfStoreSymlink /home/timon/.dotfiles/atuin;
+      "bat".source = config.lib.file.mkOutOfStoreSymlink /home/timon/.dotfiles/bat;
+      "yazi".source = config.lib.file.mkOutOfStoreSymlink /home/timon/.dotfiles/yazi;
+      "sesh".source = config.lib.file.mkOutOfStoreSymlink /home/timon/.dotfiles/sesh;
+      "wezterm".source = config.lib.file.mkOutOfStoreSymlink /home/timon/.dotfiles/wezterm;
+      "gh-dash".source = config.lib.file.mkOutOfStoreSymlink /home/timon/.dotfiles/gh-dash;
+      "zed".source = config.lib.file.mkOutOfStoreSymlink /home/timon/.dotfiles/zed;
+      "niri".source = config.lib.file.mkOutOfStoreSymlink /home/timon/.dotfiles/niri;
+      "starship.toml".source = config.lib.file.mkOutOfStoreSymlink /home/timon/.dotfiles/starship/starship.toml;
     };
-
-    xdg.configFile."nvim".source = config.lib.file.mkOutOfStoreSymlink /home/timon/.dotfiles/nvim;
-    xdg.configFile."atuin".source = config.lib.file.mkOutOfStoreSymlink /home/timon/.dotfiles/atuin;
-    xdg.configFile."bat".source = config.lib.file.mkOutOfStoreSymlink /home/timon/.dotfiles/bat;
-    xdg.configFile."hypr".source = config.lib.file.mkOutOfStoreSymlink /home/timon/.dotfiles/hypr;
-    xdg.configFile."yazi".source = config.lib.file.mkOutOfStoreSymlink /home/timon/.dotfiles/yazi;
-    xdg.configFile."sesh".source = config.lib.file.mkOutOfStoreSymlink /home/timon/.dotfiles/sesh;
-    xdg.configFile."wezterm".source = config.lib.file.mkOutOfStoreSymlink /home/timon/.dotfiles/wezterm;
-    xdg.configFile."zed".source = config.lib.file.mkOutOfStoreSymlink /home/timon/.dotfiles/zed;
-    xdg.configFile."noctalia".source = config.lib.file.mkOutOfStoreSymlink /home/timon/.dotfiles/noctalia;
-    xdg.configFile."starship.toml".source = config.lib.file.mkOutOfStoreSymlink /home/timon/.dotfiles/starship/starship.toml;
     home.file.".tmux.conf".source = config.lib.file.mkOutOfStoreSymlink /home/timon/.dotfiles/tmux/tmux.conf;
   };
 }
