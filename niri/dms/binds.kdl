@@ -30,7 +30,7 @@ binds {
     Mod+Alt+L hotkey-overlay-title="Lock Screen" {
         spawn "dms" "ipc" "call" "lock" "lock";
     }
-    Mod+Shift+E { quit; }
+    Mod+Shift+Q { quit; }
     Ctrl+Alt+Delete hotkey-overlay-title="Task Manager" {
         spawn "dms" "ipc" "call" "processlist" "focusOrToggle";
     }
@@ -222,4 +222,6 @@ binds {
     Mod+Ctrl+B { spawn "brave"; }
     Mod+Ctrl+Y { spawn "yaak-app"; }
     Mod+Ctrl+T { spawn "tabularis"; }
+
+    Mod+E hotkey-overlay-title="Cast focused window" { spawn-sh "niri msg action set-dynamic-cast-window --id $(niri msg --json focused-window | jq .id)"; }   
 }

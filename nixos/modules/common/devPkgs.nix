@@ -25,6 +25,8 @@
       ripgrep
       hyperfine
       btop
+      taze
+      ni
       # AI stuff
       opencode
       # git stuff

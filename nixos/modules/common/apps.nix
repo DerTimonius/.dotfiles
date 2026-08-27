@@ -7,7 +7,7 @@
 
       # communication
       slack
-      signal-desktop
+      unstable.signal-desktop
       teams-for-linux
 
       # music
@@ -15,7 +15,8 @@
 
       # styling
       bibata-cursors
-      comixcursors
+      catppuccin-cursors.mochaDark
+      catppuccin-cursors.mochaLight
 
       # GUIs
       localsend

@@ -1,0 +1,20 @@
+// DMS Window Rules - Managed by DankMaterialShell
+// Do not edit manually - changes may be overwritten
+
+// @id=wr_1787582076815296775 @name=proton-pass
+window-rule {
+    match app-id="^proton-pass$"
+    block-out-from "screencast"
+}
+
+// @id=wr_1787634578027553454 @name=zen
+window-rule {
+    match app-id="^zen$"
+    open-maximized true
+}
+
+// @id=wr_1787721136670194482 @name=org.wezfurlong.wezterm
+window-rule {
+    match app-id="^org.wezfurlong.wezterm$"
+    open-maximized true
+}
