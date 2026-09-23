@@ -56,6 +56,8 @@ brew "gnupg"
 brew "go"
 # Tool for glamorous shell scripts
 brew "gum"
+# OpenType text shaping engine
+brew "harfbuzz"
 # Command-line benchmarking tool
 brew "hyperfine"
 # C/C++ and Java libraries for Unicode and globalization
