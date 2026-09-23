@@ -19,7 +19,7 @@ bindkey '^[[A' history-search-backward
 bindkey '^[[B' history-search-forward
 
 # pnpm
-export PNPM_HOME="/Users/timonjurschitsch/Library/pnpm"
+export PNPM_HOME=$HOME/Library/pnpm
 case ":$PATH:" in
   *":$PNPM_HOME:"*) ;;
   *) export PATH="$PNPM_HOME:$PATH" ;;
@@ -93,17 +93,15 @@ alias sort-json="~/.dotfiles/utils/sort_json.sh"
 
 export PATH=$PATH:$HOME/go/bin
 
-# nvm related things
-export NVM_DIR="$HOME/.nvm"
-[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
-[ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
-
 source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 . "$HOME/.atuin/bin/env"
 
 eval "$(atuin init zsh)"
+autoload -Uz compinit
+compinit
+
 #compdef gt
 ###-begin-gt-completions-###
 #
@@ -126,9 +124,9 @@ compdef _gt_yargs_completions gt
 
 
 # fnm
-FNM_PATH="/Users/timonjurschitsch/Library/Application Support/fnm"
+FNM_PATH="$HOME/Library/Application Support/fnm"
 if [ -d "$FNM_PATH" ]; then
-  export PATH="/Users/timonjurschitsch/Library/Application Support/fnm:$PATH"
+  export PATH="$HOME/Library/Application Support/fnm:$PATH"
   eval "`fnm env`"
 fi
 eval "$(fnm env --use-on-cd --shell zsh)"
@@ -138,4 +136,11 @@ if [ -f ~/.zshrc.private ]; then
 fi
 
 # opencode
-export PATH=/Users/timonjurschitsch/.opencode/bin:$PATH
+export PATH=$HOME/.opencode/bin:$PATH
+export PATH=$HOME/.local/bin:$PATH
+
+# fnm
+FNM_PATH="/opt/homebrew/opt/fnm/bin"
+if [ -d "$FNM_PATH" ]; then
+  eval "$(fnm env --shell zsh)"
+fi
